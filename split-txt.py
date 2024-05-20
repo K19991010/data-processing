@@ -9,26 +9,31 @@ import os
 
 random.seed(0)
 
-image_original_path = "./mydata/p1/JPEGImages/"
-label_original_path = "./mydata/p1/Annotations1/"
-
+# image_original_path = "./mydata/b/JPEGImages/"
+# label_original_path = "./mydata/b/Annotations1/"
+image_original_path = "D:/data/paper2/original/b/JPEGImages/"
+label_original_path = "D:/data/paper2/original/b/Annotations/"
 cur_path = os.getcwd()
 
 # 训练集路径
-train_image_path = os.path.join(cur_path, "datasets/p1/images/train/")
-train_label_path = os.path.join(cur_path, "datasets/p1/labels/train/")
-
+# train_image_path = os.path.join(cur_path, "datasets/b/images/train/")
+# train_label_path = os.path.join(cur_path, "datasets/b/labels/train/")
+train_image_path = os.path.join(cur_path, "D:/data/paper2/split/b/images/train/")
+train_label_path = os.path.join(cur_path, "D:/data/paper2/split/b/labels/train/")
 # 验证集路径
-val_image_path = os.path.join(cur_path, "datasets/p1/images/val/")
-val_label_path = os.path.join(cur_path, "datasets/p1/labels/val/")
-
+# val_image_path = os.path.join(cur_path, "datasets/b/images/val/")
+# val_label_path = os.path.join(cur_path, "datasets/b/labels/val/")
+val_image_path = os.path.join(cur_path, "D:/data/paper2/split/b/images/val/")
+val_label_path = os.path.join(cur_path, "D:/data/paper2/split/b/labels/val/")
 # 测试集路径
 # test_image_path = os.path.join(cur_path, "datasets/defect1/images/test/")
 # test_label_path = os.path.join(cur_path, "datasets/defect1/labels/test/")
 
 # 训练集目录
-list_train = os.path.join(cur_path, "datasets/p1/train.txt")
-list_val = os.path.join(cur_path, "datasets/p1/val.txt")
+# list_train = os.path.join(cur_path, "datasets/b/train.txt")
+# list_val = os.path.join(cur_path, "datasets/b/val.txt")
+list_train = os.path.join(cur_path, "D:/data/paper2/split/b/train.txt")
+list_val = os.path.join(cur_path, "D:/data/paper2/split/b/val.txt")
 # list_test = os.path.join(cur_path, "datasets/defect1/test.txt")
 
 train_percent = 0.8
@@ -108,18 +113,18 @@ def main():
         name = total_txt[i][:-4]
 
         srcImage = image_original_path + name + '.jpg'
-        srcLabel = label_original_path + name + ".xml"
+        srcLabel = label_original_path + name + ".txt"
         # srcLabel = label_original_path + name + ".txt"
         if i in train:
             dst_train_Image = train_image_path + name + '.jpg'
-            dst_train_Label = train_label_path + name + '.xml'
+            dst_train_Label = train_label_path + name + '.txt'
             # dst_train_Label = train_label_path + name + '.txt'
             shutil.copyfile(srcImage, dst_train_Image)
             shutil.copyfile(srcLabel, dst_train_Label)
             file_train.write(dst_train_Image + '\n')
         elif i in val:
             dst_val_Image = val_image_path + name + '.jpg'
-            dst_val_Label = val_label_path + name + '.xml'
+            dst_val_Label = val_label_path + name + '.txt'
             # dst_val_Label = val_label_path + name + '.txt'
             shutil.copyfile(srcImage, dst_val_Image)
             shutil.copyfile(srcLabel, dst_val_Label)
