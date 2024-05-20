@@ -16,4 +16,5 @@ split-txt.py是一个标注数据集划分文件
         --test
       --train.txt
       --val.txt
-
+      --test.txt
+txt文件中每一行信息代表每一张图片的存储路径
