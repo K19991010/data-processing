@@ -1,4 +1,4 @@
-split-txt.py是一个标注数据集划分文件
+1、split-txt.py是一个标注数据集划分文件
 可以将xml、yolo格式的数据集按比例划分为训练集、验证集、测试集
   原始文件夹：
     mydata：
@@ -18,3 +18,5 @@ split-txt.py是一个标注数据集划分文件
       --val.txt
       --test.txt
 txt文件中每一行信息代表每一张图片的存储路径
+
+2、
